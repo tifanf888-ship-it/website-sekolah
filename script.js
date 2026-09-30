@@ -72,15 +72,21 @@ contactForm.addEventListener("submit", function (event) {
     contactForm.reset();
 
 });
-// ================================
-// POPUP INFORMASI WEBSITE
-// ================================
+document.addEventListener("DOMContentLoaded", function () {
 
-const welcomePopup = document.getElementById("welcomePopup");
-const understandButton = document.getElementById("understandButton");
+    const welcomePopup = document.getElementById("welcomePopup");
+    const understandButton = document.getElementById("understandButton");
 
-understandButton.addEventListener("click", function () {
+    // Cek apakah elemen ditemukan
+    if (welcomePopup && understandButton) {
 
-    welcomePopup.classList.add("hide");
+        understandButton.addEventListener("click", function () {
+
+            // Sembunyikan popup
+            welcomePopup.classList.add("hide");
+
+        });
+
+    }
 
 });
