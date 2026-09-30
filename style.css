@@ -1,6 +1,6 @@
-/* =========================
+/* =========================================
    RESET
-========================= */
+========================================= */
 
 * {
     margin: 0;
@@ -16,7 +16,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: #222;
     line-height: 1.6;
-    background: white;
+    background: #fff;
+    overflow-x: hidden;
 }
 
 img {
@@ -28,10 +29,16 @@ a {
     text-decoration: none;
 }
 
+button,
+input,
+textarea {
+    font-family: inherit;
+}
 
-/* =========================
+
+/* =========================================
    CONTAINER
-========================= */
+========================================= */
 
 .container {
     width: 90%;
@@ -40,12 +47,12 @@ a {
 }
 
 
-/* =========================
-   HEADER
-========================= */
+/* =========================================
+   HEADER / NAVBAR
+========================================= */
 
 header {
-    background: white;
+    background: #fff;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -66,7 +73,7 @@ header {
 }
 
 .logo span {
-    font-size: 28px;
+    font-size: 27px;
 }
 
 .logo h2 {
@@ -76,6 +83,7 @@ header {
 
 nav {
     display: flex;
+    align-items: center;
     gap: 25px;
 }
 
@@ -92,15 +100,16 @@ nav a:hover {
 .menu-button {
     display: none;
     border: none;
-    background: none;
+    background: transparent;
     font-size: 28px;
     cursor: pointer;
+    color: #1261a0;
 }
 
 
-/* =========================
+/* =========================================
    HERO
-========================= */
+========================================= */
 
 .hero {
     background: #eef6ff;
@@ -145,9 +154,9 @@ nav a:hover {
 }
 
 
-/* =========================
+/* =========================================
    BUTTON
-========================= */
+========================================= */
 
 .button {
     display: inline-block;
@@ -167,9 +176,9 @@ nav a:hover {
 }
 
 
-/* =========================
+/* =========================================
    SECTION
-========================= */
+========================================= */
 
 .section {
     padding: 80px 0;
@@ -196,9 +205,9 @@ nav a:hover {
 }
 
 
-/* =========================
+/* =========================================
    PROFIL
-========================= */
+========================================= */
 
 .about {
     display: grid;
@@ -239,9 +248,9 @@ nav a:hover {
 }
 
 
-/* =========================
+/* =========================================
    STATISTIK
-========================= */
+========================================= */
 
 .statistics {
     background: #1261a0;
@@ -264,9 +273,9 @@ nav a:hover {
 }
 
 
-/* =========================
+/* =========================================
    GURU
-========================= */
+========================================= */
 
 .teacher-grid {
     display: grid;
@@ -292,8 +301,7 @@ nav a:hover {
     height: 130px;
     object-fit: cover;
     border-radius: 50%;
-    margin: auto;
-    margin-bottom: 20px;
+    margin: auto auto 20px;
 }
 
 .teacher-card h3 {
@@ -306,9 +314,9 @@ nav a:hover {
 }
 
 
-/* =========================
+/* =========================================
    BERITA
-========================= */
+========================================= */
 
 .news-grid {
     display: grid;
@@ -352,9 +360,9 @@ nav a:hover {
 }
 
 
-/* =========================
+/* =========================================
    GALERI
-========================= */
+========================================= */
 
 .gallery {
     display: grid;
@@ -375,9 +383,9 @@ nav a:hover {
 }
 
 
-/* =========================
+/* =========================================
    KONTAK
-========================= */
+========================================= */
 
 .contact-section {
     padding: 80px 0;
@@ -390,7 +398,8 @@ nav a:hover {
     gap: 50px;
 }
 
-.contact-info {
+.contact-info,
+form {
     background: white;
     padding: 30px;
     border-radius: 10px;
@@ -406,12 +415,6 @@ nav a:hover {
     color: #555;
 }
 
-form {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-}
-
 form input,
 form textarea {
     width: 100%;
@@ -419,19 +422,19 @@ form textarea {
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-family: inherit;
+    outline: none;
+    resize: vertical;
 }
 
 form input:focus,
 form textarea:focus {
-    outline: none;
     border-color: #1261a0;
 }
 
 
-/* =========================
+/* =========================================
    FOOTER
-========================= */
+========================================= */
 
 footer {
     background: #102a43;
@@ -454,46 +457,58 @@ footer p {
 }
 
 
-/* =========================
+/* =========================================
    BACK TO TOP
-========================= */
+========================================= */
 
 #backToTop {
     position: fixed;
     right: 25px;
     bottom: 25px;
-
     width: 45px;
     height: 45px;
-
     border: none;
     border-radius: 50%;
-
     background: #1261a0;
     color: white;
-
     font-size: 20px;
-
     cursor: pointer;
-
     display: none;
-}
-
-#backToTop:hover {
-    background: #0d4777;
+    z-index: 999;
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =========================================
+   TABLET
+========================================= */
 
 @media (max-width: 900px) {
 
-    .hero-content,
-    .about,
-    .contact-grid {
+    .container {
+        width: 92%;
+    }
+
+    .hero-content {
         grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-text > p:not(.subtitle) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-image img {
+        height: 350px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 35px;
     }
 
     .teacher-grid {
@@ -504,29 +519,51 @@ footer p {
         grid-template-columns: 1fr;
     }
 
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .statistics-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
     }
-
 }
 
 
+/* =========================================
+   HANDPHONE
+========================================= */
+
 @media (max-width: 700px) {
 
+    .container {
+        width: 92%;
+    }
+
+    /* NAVBAR */
+
     .navbar {
-        position: relative;
+        min-height: 65px;
+    }
+
+    .logo h2 {
+        font-size: 16px;
+    }
+
+    .logo span {
+        font-size: 23px;
+    }
+
+    .menu-button {
+        display: block;
     }
 
     nav {
         display: none;
 
         position: absolute;
-        top: 75px;
+        top: 65px;
         left: 0;
 
         width: 100%;
@@ -534,38 +571,275 @@ footer p {
         background: white;
 
         flex-direction: column;
+        align-items: flex-start;
 
-        padding: 20px;
+        gap: 0;
 
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding: 10px 4%;
+
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
     }
 
     nav.active {
         display: flex;
     }
 
-    .menu-button {
-        display: block;
+    nav a {
+        width: 100%;
+        padding: 13px 0;
+        border-bottom: 1px solid #eee;
     }
 
+
+    /* HERO */
+
     .hero {
-        padding: 50px 0;
+        padding: 55px 0;
+    }
+
+    .hero-content {
+        gap: 30px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+        letter-spacing: 1.5px;
     }
 
     .hero h1 {
-        font-size: 40px;
+        font-size: 38px;
+        line-height: 1.2;
+    }
+
+    .hero-text > p:not(.subtitle) {
+        font-size: 15px;
+    }
+
+    .hero-image img {
+        height: 240px;
+        border-radius: 12px;
+    }
+
+
+    /* SECTION */
+
+    .section {
+        padding: 55px 0;
+    }
+
+    .section-title {
+        margin-bottom: 30px;
+    }
+
+    .section-title p {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+
+    /* PROFIL */
+
+    .about {
+        gap: 25px;
+    }
+
+    .about-image img {
+        height: 240px;
+    }
+
+    .about-text h3 {
+        font-size: 25px;
+    }
+
+    .about-text p {
+        font-size: 15px;
+    }
+
+
+    /* STATISTIK */
+
+    .statistics {
+        padding: 35px 0;
+    }
+
+    .statistics-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px 10px;
+    }
+
+    .stat h2 {
+        font-size: 30px;
+    }
+
+    .stat p {
+        font-size: 14px;
+    }
+
+
+    /* GURU */
+
+    .teacher-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .teacher-card {
+        padding: 20px 10px;
+    }
+
+    .teacher-card img {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 12px;
+    }
+
+    .teacher-card h3 {
+        font-size: 15px;
+    }
+
+    .teacher-card p {
+        font-size: 13px;
+    }
+
+
+    /* BERITA */
+
+    .news-grid {
+        gap: 20px;
+    }
+
+    .news-card img {
+        height: 200px;
+    }
+
+    .news-content {
+        padding: 17px;
+    }
+
+    .news-content h3 {
+        font-size: 18px;
+    }
+
+    .news-content p {
+        font-size: 14px;
+    }
+
+
+    /* GALERI */
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .gallery img {
+        height: 160px;
+        border-radius: 6px;
+    }
+
+
+    /* KONTAK */
+
+    .contact-section {
+        padding: 55px 0;
+    }
+
+    .contact-grid {
+        gap: 20px;
+    }
+
+    .contact-info,
+    form {
+        padding: 20px;
+    }
+
+    .contact-info h3 {
+        font-size: 21px;
+    }
+
+    .contact-info p {
+        font-size: 14px;
+    }
+
+    form input,
+    form textarea {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    form .button {
+        width: 100%;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 30px 15px;
+    }
+
+    footer h3 {
+        font-size: 18px;
+    }
+
+    footer p {
+        font-size: 14px;
+    }
+
+
+    /* BACK TO TOP */
+
+    #backToTop {
+        width: 40px;
+        height: 40px;
+        right: 15px;
+        bottom: 15px;
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================
+   HP KECIL
+========================================= */
+
+@media (max-width: 400px) {
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-image img {
+        height: 210px;
     }
 
     .teacher-grid {
         grid-template-columns: 1fr;
     }
 
+    .teacher-card {
+        max-width: 280px;
+        width: 100%;
+        margin: auto;
+    }
+
     .gallery {
         grid-template-columns: 1fr;
+    }
+
+    .gallery img {
+        height: 220px;
     }
 
     .statistics-grid {
         grid-template-columns: 1fr 1fr;
     }
 
+    .stat h2 {
+        font-size: 27px;
+    }
 }
