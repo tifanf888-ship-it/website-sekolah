@@ -72,9 +72,9 @@ contactForm.addEventListener("submit", function (event) {
     contactForm.reset();
 
 });
-// =================================
+// ================================
 // POPUP INFORMASI WEBSITE
-// =================================
+// ================================
 
 const welcomePopup = document.getElementById("welcomePopup");
 const understandButton = document.getElementById("understandButton");
