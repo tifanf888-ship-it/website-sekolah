@@ -5,9 +5,11 @@
 const menuButton = document.getElementById("menuButton");
 const navMenu = document.getElementById("navMenu");
 
-menuButton.addEventListener("click", function () {
-    navMenu.classList.toggle("active");
-});
+if (menuButton && navMenu) {
+    menuButton.addEventListener("click", function () {
+        navMenu.classList.toggle("active");
+    });
+}
 
 
 // ================================
@@ -17,11 +19,11 @@ menuButton.addEventListener("click", function () {
 const navLinks = document.querySelectorAll("nav a");
 
 navLinks.forEach(function (link) {
-
     link.addEventListener("click", function () {
-        navMenu.classList.remove("active");
+        if (navMenu) {
+            navMenu.classList.remove("active");
+        }
     });
-
 });
 
 
@@ -31,24 +33,18 @@ navLinks.forEach(function (link) {
 
 const backToTop = document.getElementById("backToTop");
 
-window.addEventListener("scroll", function () {
-
-    if (window.scrollY > 300) {
-        backToTop.style.display = "block";
-    } else {
-        backToTop.style.display = "none";
-    }
-
-});
-
-backToTop.addEventListener("click", function () {
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+if (backToTop) {
+    window.addEventListener("scroll", function () {
+        backToTop.style.display = window.scrollY > 300 ? "block" : "none";
     });
 
-});
+    backToTop.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
 
 
 // ================================
@@ -57,36 +53,35 @@ backToTop.addEventListener("click", function () {
 
 const contactForm = document.getElementById("contactForm");
 
-contactForm.addEventListener("submit", function (event) {
+if (contactForm) {
+    const namaInput = document.getElementById("nama");
 
-    event.preventDefault();
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    const nama = document.getElementById("nama").value;
+        const nama = namaInput ? namaInput.value : "Pengunjung";
 
-    alert(
-        "Terima kasih, " +
-        nama +
-        "! Pesan Anda berhasil dikirim."
-    );
+        alert(
+            "Terima kasih, " +
+            nama +
+            "! Pesan Anda berhasil dikirim."
+        );
 
-    contactForm.reset();
+        contactForm.reset();
+    });
+}
 
-});
+// =============================
+// NOTIFIKASI AWAL WEBSITE
+// =============================
+
 document.addEventListener("DOMContentLoaded", function () {
-
     const welcomePopup = document.getElementById("welcomePopup");
     const understandButton = document.getElementById("understandButton");
 
-    // Cek apakah elemen ditemukan
     if (welcomePopup && understandButton) {
-
         understandButton.addEventListener("click", function () {
-
-            // Sembunyikan popup
             welcomePopup.classList.add("hide");
-
         });
-
     }
-
 });
